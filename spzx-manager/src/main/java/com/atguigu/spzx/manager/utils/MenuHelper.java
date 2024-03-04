@@ -22,7 +22,7 @@ public class MenuHelper {
                 trees.add(findChildren(sysMenu,sysMenuList));
             }
         }
-        return null;
+        return trees;
     }
 
     //递归查找下层菜单

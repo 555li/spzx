@@ -73,7 +73,7 @@ public class CategoryServiceImpl implements CategoryService {
         //1 根据id条件值进行查询，返回List集合
         //Select * from category where parent_id=id
         List<Category> categoryList=categoryMapper.selectCategoryByParentId(id);
-
+        System.out.println("categoryList="+categoryList);
         //2 遍历返回List集合
         //判断每个分类是否有下一层分类，如果有设置hasChildren=true
         if(!CollectionUtils.isEmpty(categoryList)){
@@ -87,6 +87,6 @@ public class CategoryServiceImpl implements CategoryService {
                 else category.setHasChildren(false);
             });
         }
-        return null;
+        return categoryList;
     }
 }

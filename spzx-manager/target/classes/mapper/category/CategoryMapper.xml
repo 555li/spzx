@@ -22,5 +22,39 @@
         from category
         where parent_id=#{id} and is_deleted = 0
     </select>
-
+<!--调用mapper方法查询所有分类，返回List集合-->
+    <select id="findAll" resultMap="categoryMap">
+        select <include refid="columns"/>
+        from category
+        where is_deleted = 0
+        order by id
+    </select>
+<!--    批量保存分类-->
+    <insert id="batchInsert">
+        insert into category
+        (
+            id,
+            name,
+            image_url,
+            parent_id,
+            status,
+            order_num,
+            create_time ,
+            update_time ,
+            is_deleted
+        )values
+             <foreach collection="cachedDataList" item="item" separator=",">
+            (
+                 #{item.id},
+                 #{item.name},
+                 #{item.imageUrl},
+                 #{item.parentId},
+                 #{item.status},
+                 #{item.orderNum},
+                 now(),
+                 now(),
+                 0
+            )
+        </foreach>
+    </insert>
 </mapper>

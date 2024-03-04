@@ -5,12 +5,12 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.234.129:3306/db_spzx?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://192.168.44.112:3306/db_spzx?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: 1234
   data:
     redis:
-      host: 192.168.234.129
+      host: 192.168.44.112
       port: 6379
 
 
